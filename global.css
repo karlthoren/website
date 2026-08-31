@@ -1,50 +1,100 @@
 /* =========================================================
-   1. DESIGN SYSTEM
+   KARLTHOREN.DE
+   THE ARCANE STUDY
+
+   Fantasy nerdery through the lens of a gentleman scholar.
+
+   Dark ink · ivory · aged brass · verdigris
+   Literary · curious · restrained · slightly eccentric
    ========================================================= */
-
-:root {
-    --bg: #09080f;
-    --bg-soft: #11101a;
-
-    --text: #f7f4ff;
-    --muted: #aaa4b8;
-    --quiet: #756f82;
-
-    --pink: #ff4fa3;
-    --orange: #ff9d45;
-    --violet: #8b5cf6;
-    --cyan: #52e5e7;
-    --lime: #b7ff64;
-
-    --line: rgba(255, 255, 255, 0.10);
-    --glass: rgba(255, 255, 255, 0.055);
-
-    --max-width: 1180px;
-}
 
 
 /* =========================================================
-   2. RESET / BASE
+   1. DESIGN TOKENS
    ========================================================= */
 
-* {
-    box-sizing: border-box;
-}
+:root {
 
-html {
-    scroll-behavior: smooth;
-}
+    /* -----------------------------------------------------
+       FOUNDATION
+       ----------------------------------------------------- */
 
-body {
-    margin: 0;
-    min-height: 100vh;
+    --ink-950: #030806;
+    --ink-900: #06100c;
+    --ink-850: #09150f;
+    --ink-800: #0d1b15;
+    --ink-750: #12231b;
 
-    overflow-x: hidden;
+    --surface-1: rgba(241, 234, 216, 0.024);
+    --surface-2: rgba(241, 234, 216, 0.042);
+    --surface-3: rgba(241, 234, 216, 0.065);
 
-    color: var(--text);
-    background: var(--bg);
 
-    font-family:
+    /* -----------------------------------------------------
+       TYPOGRAPHY
+       ----------------------------------------------------- */
+
+    --ivory: #f0e9d9;
+    --ivory-soft: #d8cfbb;
+    --parchment: #bbb19d;
+
+    --muted: #938d7e;
+    --quiet: #646a5f;
+
+
+    /* -----------------------------------------------------
+       METALS
+       ----------------------------------------------------- */
+
+    --brass: #b88a52;
+    --brass-light: #d4a76c;
+    --brass-pale: #e0bd88;
+
+    --bronze: #936744;
+    --copper: #aa704c;
+
+
+    /* -----------------------------------------------------
+       SECONDARY MATERIALS
+       ----------------------------------------------------- */
+
+    --verdigris: #65988a;
+    --verdigris-light: #8bb8aa;
+
+    --moss: #89936b;
+    --wine: #754d5b;
+
+
+    /* -----------------------------------------------------
+       LINES
+       ----------------------------------------------------- */
+
+    --line: rgba(240, 233, 217, 0.10);
+    --line-medium: rgba(240, 233, 217, 0.17);
+    --line-strong: rgba(240, 233, 217, 0.27);
+
+    --metal-line: rgba(184, 138, 82, 0.34);
+    --verdigris-line: rgba(101, 152, 138, 0.30);
+
+
+    /* -----------------------------------------------------
+       LAYOUT
+       ----------------------------------------------------- */
+
+    --max-width: 1200px;
+
+    --section-space:
+        clamp(6rem, 9vw, 8.75rem);
+
+    --radius-small: 6px;
+    --radius-medium: 14px;
+
+
+    /* -----------------------------------------------------
+       TYPOGRAPHY STACKS
+       ----------------------------------------------------- */
+
+    --font-ui:
         Inter,
         ui-sans-serif,
         system-ui,
@@ -53,8 +103,63 @@ body {
         "Segoe UI",
         sans-serif;
 
-    line-height: 1.6;
+    --font-editorial:
+        Georgia,
+        "Palatino Linotype",
+        Palatino,
+        "Book Antiqua",
+        serif;
 }
+
+
+/* =========================================================
+   2. RESET / BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: var(--ivory);
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--ink-900) 0%,
+            var(--ink-950) 100%
+        );
+
+    font-family: var(--font-ui);
+    line-height: 1.65;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   3. PAGE ATMOSPHERE
+   ========================================================= */
+
+/*
+   Very faint construction lines.
+
+   These suggest maps, manuscripts and technical drawings
+   without turning the entire page into a literal chart.
+*/
 
 body::before {
     content: "";
@@ -62,31 +167,44 @@ body::before {
     position: fixed;
     inset: 0;
 
-    z-index: -3;
+    z-index: -5;
+
+    pointer-events: none;
 
     background:
+
         radial-gradient(
-            circle at 12% 18%,
-            rgba(255, 79, 163, 0.15),
-            transparent 28rem
+            circle at 78% 14%,
+            transparent 0 118px,
+            rgba(101, 152, 138, 0.048) 119px 120px,
+            transparent 121px 175px,
+            rgba(184, 138, 82, 0.040) 176px 177px,
+            transparent 178px
         ),
+
         radial-gradient(
-            circle at 88% 20%,
-            rgba(82, 229, 231, 0.12),
-            transparent 30rem
+            circle at 10% 71%,
+            transparent 0 150px,
+            rgba(184, 138, 82, 0.034) 151px 152px,
+            transparent 153px 230px,
+            rgba(101, 152, 138, 0.028) 231px 232px,
+            transparent 233px
         ),
-        radial-gradient(
-            circle at 50% 82%,
-            rgba(139, 92, 246, 0.13),
-            transparent 28rem
-        ),
+
         linear-gradient(
-            180deg,
-            #09080f 0%,
-            #0b0911 55%,
-            #08070d 100%
+            108deg,
+            transparent 49.9%,
+            rgba(240, 233, 217, 0.015) 50%,
+            transparent 50.1%
         );
 }
+
+
+/*
+   Almost invisible physical texture.
+
+   It should be felt rather than noticed.
+*/
 
 body::after {
     content: "";
@@ -94,14 +212,20 @@ body::after {
     position: fixed;
     inset: 0;
 
-    pointer-events: none;
-    z-index: 10;
+    z-index: 100;
 
-    opacity: 0.035;
+    pointer-events: none;
+
+    opacity: 0.022;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.67' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
 }
+
+
+/* =========================================================
+   4. GENERIC ELEMENTS
+   ========================================================= */
 
 a {
     color: inherit;
@@ -115,106 +239,194 @@ textarea {
 }
 
 ::selection {
-    color: #09080f;
-    background: var(--lime);
+    color: var(--ink-950);
+    background: var(--brass-light);
+}
+
+
+/*
+   Proper keyboard focus.
+*/
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline:
+        2px solid var(--brass-light);
+
+    outline-offset:
+        4px;
 }
 
 
 /* =========================================================
-   3. DECORATIVE BACKGROUND
+   5. AMBIENT DECORATION
    ========================================================= */
+
+/*
+   Existing .orb elements are repurposed as faded
+   scholarly / celestial constructions rather than blobs.
+*/
 
 .ambient {
     position: fixed;
     inset: 0;
 
+    z-index: -4;
+
     overflow: hidden;
 
     pointer-events: none;
-    z-index: -2;
 }
 
 .orb {
     position: absolute;
 
-    width: 360px;
-    aspect-ratio: 1;
+    border-radius: 50%;
 
-    border-radius: 999px;
+    background: transparent;
 
-    filter: blur(95px);
-    opacity: 0.28;
+    filter: none;
+
+    opacity: 0.24;
 
     animation:
-        drift 14s ease-in-out infinite;
+        slow-drift
+        28s
+        ease-in-out
+        infinite alternate;
 }
+
+
+/* upper-right instrument */
 
 .orb-one {
-    top: -140px;
-    left: -100px;
+    width: 520px;
+    height: 520px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--pink),
-            var(--orange)
-        );
+    top: -300px;
+    right: -180px;
+
+    border:
+        1px solid
+        rgba(101, 152, 138, 0.18);
 }
+
+.orb-one::before,
+.orb-one::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+}
+
+.orb-one::before {
+    inset: 17%;
+
+    border:
+        1px dashed
+        rgba(184, 138, 82, 0.15);
+}
+
+.orb-one::after {
+    inset: 35%;
+
+    border:
+        1px solid
+        rgba(240, 233, 217, 0.09);
+}
+
+
+/* left-side manuscript circle */
 
 .orb-two {
-    top: 32%;
-    right: -160px;
+    width: 390px;
+    height: 390px;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--cyan),
-            var(--violet)
-        );
+    left: -250px;
+    top: 42%;
 
-    animation-delay: -5s;
-}
-
-.orb-three {
-    bottom: -180px;
-    left: 38%;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--violet),
-            var(--pink)
-        );
+    border:
+        1px solid
+        rgba(184, 138, 82, 0.15);
 
     animation-delay: -9s;
 }
 
-@keyframes drift {
+.orb-two::before {
+    content: "";
 
-    0%,
-    100% {
+    position: absolute;
+
+    inset: 24%;
+
+    border:
+        1px dotted
+        rgba(101, 152, 138, 0.16);
+
+    border-radius: 50%;
+}
+
+
+/* lower-right angular construction */
+
+.orb-three {
+    width: 530px;
+    height: 530px;
+
+    right: 7%;
+    bottom: -390px;
+
+    border:
+        1px solid
+        rgba(240, 233, 217, 0.06);
+
+    animation-delay: -18s;
+}
+
+.orb-three::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 19%;
+
+    border:
+        1px solid
+        rgba(184, 138, 82, 0.12);
+
+    transform:
+        rotate(35deg);
+}
+
+
+@keyframes slow-drift {
+
+    from {
         transform:
             translate3d(0, 0, 0)
-            scale(1);
+            rotate(-3deg);
     }
 
-    50% {
+    to {
         transform:
-            translate3d(30px, -25px, 0)
-            scale(1.08);
+            translate3d(22px, -16px, 0)
+            rotate(5deg);
     }
 }
 
 
 /* =========================================================
-   4. SHARED LAYOUT
+   6. GLOBAL LAYOUT
    ========================================================= */
 
 .container {
     width:
         min(
             var(--max-width),
-            calc(100% - 40px)
+            calc(100% - 52px)
         );
 
     margin-inline: auto;
@@ -224,56 +436,78 @@ section {
     position: relative;
 
     padding:
-        110px 0;
+        var(--section-space)
+        0;
 }
 
+
+/* =========================================================
+   7. SHARED TYPOGRAPHY
+   ========================================================= */
+
 .section-kicker {
-    margin-bottom: 14px;
+    display: inline-flex;
 
-    color: var(--quiet);
+    align-items: center;
 
-    font-size: 0.75rem;
-    font-weight: 800;
+    gap: 11px;
 
-    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+
+    color: var(--brass-light);
+
+    font-family: var(--font-editorial);
+
+    font-size: 0.69rem;
+
+    font-style: italic;
+
+    letter-spacing: 0.16em;
+
     text-transform: uppercase;
+}
+
+.section-kicker::before {
+    content: "✦";
+
+    color: var(--verdigris);
+
+    font-size: 0.74rem;
+    font-style: normal;
 }
 
 .section-title {
     margin: 0;
 
-    max-width: 760px;
+    max-width: 940px;
+
+    color: var(--ivory);
+
+    font-family: var(--font-editorial);
 
     font-size:
         clamp(
-            2.6rem,
-            6vw,
-            5.2rem
+            3.4rem,
+            7vw,
+            6.5rem
         );
 
-    line-height: 0.98;
+    font-weight: 400;
 
-    letter-spacing: -0.055em;
+    line-height: 0.89;
+
+    letter-spacing: -0.06em;
 }
 
 .gradient-word {
-    color: transparent;
+    color: var(--verdigris-light);
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--pink),
-            var(--orange),
-            var(--cyan)
-        );
-
-    background-clip: text;
-    -webkit-background-clip: text;
+    font-style: italic;
 }
 
 
 /* =========================================================
-   5. NAVIGATION
+   8. NAVIGATION
    ========================================================= */
 
 .nav-shell {
@@ -288,10 +522,12 @@ section {
 }
 
 .nav {
+    position: relative;
+
     width:
         min(
             var(--max-width),
-            calc(100% - 32px)
+            calc(100% - 34px)
         );
 
     margin-inline: auto;
@@ -300,188 +536,312 @@ section {
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 24px;
 
     padding:
-        12px 14px
-        12px 18px;
+        11px 16px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.09);
-
-    border-radius: 18px;
+        1px solid var(--line-medium);
 
     background:
-        rgba(12, 10, 18, 0.66);
+        rgba(4, 10, 7, 0.82);
 
     backdrop-filter:
-        blur(22px);
+        blur(18px)
+        saturate(115%);
 
     -webkit-backdrop-filter:
-        blur(22px);
+        blur(18px)
+        saturate(115%);
 
     box-shadow:
-        0 18px 60px
-        rgba(0, 0, 0, 0.25);
+        0 18px 55px
+        rgba(0, 0, 0, 0.22);
+
+    clip-path:
+        polygon(
+            0 8px,
+            8px 0,
+            calc(100% - 8px) 0,
+            100% 8px,
+            100% calc(100% - 8px),
+            calc(100% - 8px) 100%,
+            8px 100%,
+            0 calc(100% - 8px)
+        );
 }
+
+
+/*
+   Tiny brass registration line.
+*/
+
+.nav::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 76px;
+    height: 1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--brass),
+            transparent
+        );
+}
+
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 11px;
 
-    font-size: 0.88rem;
-    font-weight: 800;
+    gap: 12px;
 
-    letter-spacing: 0.04em;
+    color: var(--ivory);
+
+    font-family: var(--font-editorial);
+
+    font-size: 0.76rem;
+
+    letter-spacing: 0.12em;
 }
 
 .brand-mark {
-    width: 30px;
-    height: 30px;
+    position: relative;
 
     display: grid;
     place-items: center;
 
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
 
-    color: #100b13;
+    flex: 0 0 auto;
+
+    border:
+        1px solid var(--brass);
+
+    border-radius: 50%;
+
+    color: var(--brass-pale);
 
     background:
-        linear-gradient(
-            135deg,
-            var(--pink),
-            var(--orange)
+        radial-gradient(
+            circle,
+            rgba(184, 138, 82, 0.10),
+            transparent 68%
         );
 
-    box-shadow:
-        0 7px 24px
-        rgba(255, 79, 163, 0.25);
+    font-size: 0.78rem;
 }
+
+.brand-mark::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border:
+        1px solid
+        rgba(101, 152, 138, 0.32);
+
+    border-radius: 50%;
+}
+
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 5px;
+
+    gap: 26px;
 
     color: var(--muted);
 
-    font-size: 0.84rem;
-    font-weight: 650;
+    font-family: var(--font-editorial);
+
+    font-size: 0.74rem;
+
+    font-style: italic;
 }
 
 .nav-links a {
-    padding:
-        8px 11px;
+    position: relative;
 
-    border-radius: 10px;
+    padding:
+        5px 0;
 
     transition:
-        color 180ms ease,
-        background 180ms ease;
+        color 180ms ease;
+}
+
+.nav-links a::before {
+    content: "·";
+
+    position: absolute;
+
+    left: -12px;
+
+    color: transparent;
+
+    transition:
+        color 180ms ease;
 }
 
 .nav-links a:hover {
-    color: white;
+    color: var(--ivory);
+}
 
-    background:
-        rgba(255, 255, 255, 0.06);
+.nav-links a:hover::before {
+    color: var(--brass-light);
 }
 
 
 /* =========================================================
-   6. HERO
+   9. HERO
    ========================================================= */
 
 .hero {
+    position: relative;
+
     min-height: 100vh;
 
     display: flex;
     align-items: center;
 
     padding:
-        155px 0
-        90px;
+        165px 0
+        105px;
 }
 
 .hero-grid {
+    position: relative;
+
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.18fr)
-        minmax(270px, 0.82fr);
+        minmax(0, 1.36fr)
+        minmax(285px, 0.64fr);
 
     align-items: end;
 
-    gap: 70px;
+    gap: 94px;
 }
+
+
+/*
+   One architectural axis.
+*/
+
+.hero-grid::after {
+    content: "";
+
+    position: absolute;
+
+    top: -55px;
+    bottom: -60px;
+
+    left: 68%;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(101, 152, 138, 0.15) 18%,
+            rgba(184, 138, 82, 0.20) 72%,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   10. HERO LABEL
+   ========================================================= */
 
 .hero-label {
     display: inline-flex;
+
     align-items: center;
-    gap: 9px;
 
-    margin-bottom: 28px;
+    gap: 10px;
 
-    padding:
-        7px 11px;
+    margin-bottom: 34px;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.10);
+    color: var(--muted);
 
-    border-radius:
-        999px;
+    font-family: var(--font-editorial);
 
-    color:
-        #d6d0df;
+    font-size: 0.68rem;
 
-    background:
-        rgba(255, 255, 255, 0.04);
+    font-style: italic;
 
-    font-size:
-        0.76rem;
+    letter-spacing: 0.15em;
 
-    font-weight:
-        750;
-
-    letter-spacing:
-        0.08em;
-
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 }
 
 .hero-dot {
-    width: 7px;
-    height: 7px;
+    position: relative;
+
+    width: 8px;
+    height: 8px;
+
+    border:
+        1px solid var(--brass);
+
+    border-radius: 50%;
+}
+
+.hero-dot::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 2px;
 
     border-radius: 50%;
 
-    background:
-        var(--lime);
-
-    box-shadow:
-        0 0 14px
-        rgba(183, 255, 100, 0.8);
+    background: var(--brass-light);
 }
+
+
+/* =========================================================
+   11. HERO TITLE
+   ========================================================= */
 
 .hero h1 {
     margin: 0;
 
-    max-width: 850px;
+    max-width: 980px;
+
+    color: var(--ivory);
+
+    font-family: var(--font-editorial);
 
     font-size:
         clamp(
-            4.2rem,
-            10vw,
-            8.7rem
+            5.8rem,
+            13vw,
+            10.8rem
         );
 
-    line-height:
-        0.82;
+    font-weight: 400;
 
-    letter-spacing:
-        -0.075em;
+    line-height: 0.70;
+
+    letter-spacing: -0.09em;
 }
 
 .hero h1 span {
@@ -489,146 +849,221 @@ section {
 }
 
 .hero .color-line {
-    color: transparent;
+    position: relative;
+
+    width: fit-content;
+
+    color: var(--brass-light);
+
+    font-style: italic;
+
+    padding-right:
+        0.08em;
+}
+
+
+/*
+   The underline feels drawn / catalogued,
+   not like a web gradient.
+*/
+
+.hero .color-line::after {
+    content: "";
+
+    position: absolute;
+
+    left: 3%;
+    right: -7%;
+
+    bottom: -0.08em;
+
+    height: 1px;
 
     background:
         linear-gradient(
             90deg,
-            var(--pink),
-            var(--orange) 35%,
-            var(--cyan) 70%,
-            var(--lime)
+            var(--brass),
+            var(--verdigris),
+            transparent
         );
-
-    background-clip:
-        text;
-
-    -webkit-background-clip:
-        text;
 }
 
+
+/* =========================================================
+   12. HERO INTRO
+   ========================================================= */
+
 .hero-intro {
-    max-width:
-        480px;
+    max-width: 530px;
 
     margin:
-        30px 0 0;
+        40px 0 0;
 
-    color:
-        var(--muted);
+    color: var(--ivory-soft);
+
+    font-family: var(--font-editorial);
 
     font-size:
         clamp(
-            1rem,
-            1.6vw,
-            1.2rem
+            1.08rem,
+            1.8vw,
+            1.34rem
         );
 
-    line-height:
-        1.75;
+    line-height: 1.74;
 }
 
+
+/* =========================================================
+   13. HERO MARGINALIA
+   ========================================================= */
+
 .hero-side {
-    padding-bottom:
-        8px;
+    position: relative;
+
+    padding:
+        44px 0
+        10px 34px;
+
+    border-left:
+        1px solid var(--line-strong);
+}
+
+
+/*
+   An archival label rather than location data.
+*/
+
+.hero-side::before {
+    content: "FIELD NOTE · K/T · 01";
+
+    position: absolute;
+
+    top: 0;
+    left: 34px;
+
+    color: var(--quiet);
+
+    font-family: var(--font-editorial);
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.17em;
+
+    text-transform: uppercase;
 }
 
 .hero-side-line {
-    width:
-        68px;
+    position: relative;
 
-    height:
-        2px;
+    width: 78px;
+    height: 1px;
 
-    margin-bottom:
-        20px;
+    margin-bottom: 27px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--pink),
-            var(--cyan)
-        );
+    background: var(--brass);
+}
+
+.hero-side-line::after {
+    content: "";
+
+    position: absolute;
+
+    right: -4px;
+    top: -3px;
+
+    width: 7px;
+    height: 7px;
+
+    border:
+        1px solid var(--verdigris);
+
+    border-radius: 50%;
+
+    background: var(--ink-900);
 }
 
 .hero-side p {
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        #d3ccdb;
+    color: var(--ivory-soft);
 
-    font-size:
-        1.02rem;
+    font-family: var(--font-editorial);
 
-    line-height:
-        1.8;
+    font-size: 0.98rem;
+
+    line-height: 1.90;
 }
 
-.hero-meta {
-    display:
-        flex;
 
-    flex-wrap:
-        wrap;
+/* =========================================================
+   14. HERO TAGS
+   ========================================================= */
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
 
     gap:
-        8px;
+        9px 19px;
 
-    margin-top:
-        24px;
+    margin-top: 30px;
 }
 
 .hero-meta span {
-    padding:
-        7px 10px;
+    color: var(--muted);
 
-    border:
-        1px solid var(--line);
+    font-family: var(--font-editorial);
 
-    border-radius:
-        999px;
+    font-size: 0.67rem;
 
-    color:
-        var(--muted);
+    font-style: italic;
 
-    background:
-        rgba(255, 255, 255, 0.035);
-
-    font-size:
-        0.73rem;
+    letter-spacing: 0.06em;
 }
 
+.hero-meta span::before {
+    content: "◇";
+
+    margin-right: 7px;
+
+    color: var(--brass);
+}
+
+
+/* =========================================================
+   15. SCROLL HINT
+   ========================================================= */
+
 .scroll-hint {
-    position:
-        absolute;
+    position: absolute;
 
-    left:
-        50%;
-
-    bottom:
-        34px;
+    left: 50%;
+    bottom: 30px;
 
     transform:
         translateX(-50%);
 
-    color:
-        var(--quiet);
+    color: var(--quiet);
 
-    font-size:
-        0.69rem;
+    font-family: var(--font-editorial);
 
-    letter-spacing:
-        0.16em;
+    font-size: 0.61rem;
 
-    text-transform:
-        uppercase;
+    font-style: italic;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
 
     animation:
-        bounce 2.2s ease-in-out infinite;
+        quiet-bounce
+        2.8s
+        ease-in-out
+        infinite;
 }
 
-@keyframes bounce {
+@keyframes quiet-bounce {
 
     0%,
     100% {
@@ -640,13 +1075,13 @@ section {
     50% {
         transform:
             translateX(-50%)
-            translateY(7px);
+            translateY(6px);
     }
 }
 
 
 /* =========================================================
-   7. THREE WORLDS
+   16. WORLDS
    ========================================================= */
 
 .worlds {
@@ -655,13 +1090,69 @@ section {
 }
 
 .worlds-heading {
-    margin-bottom:
-        46px;
+    position: relative;
+
+    max-width: 980px;
+
+    margin-bottom: 72px;
+
+    padding-left:
+        clamp(0px, 7vw, 82px);
 }
 
+
+/*
+   A tiny diagram instead of another decorative blob.
+*/
+
+.worlds-heading::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 7px;
+
+    width: 43px;
+    height: 43px;
+
+    border:
+        1px solid var(--verdigris-line);
+
+    border-radius: 50%;
+}
+
+.worlds-heading::after {
+    content: "";
+
+    position: absolute;
+
+    left: 21px;
+    top: -7px;
+
+    width: 1px;
+    height: 70px;
+
+    background:
+        var(--metal-line);
+
+    transform:
+        rotate(31deg);
+}
+
+
+/* =========================================================
+   17. WORLD FOLIOS
+   ========================================================= */
+
+/*
+   Deliberately not conventional rounded cards.
+
+   They behave like three folios / catalogue entries.
+*/
+
 .card-grid {
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -669,151 +1160,224 @@ section {
             minmax(0, 1fr)
         );
 
-    gap:
-        18px;
+    border-top:
+        1px solid var(--line-strong);
+
+    border-bottom:
+        1px solid var(--line-strong);
 }
 
 .world-card {
-    position:
-        relative;
+    position: relative;
 
-    min-height:
-        310px;
+    min-height: 405px;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
     padding:
-        28px;
+        31px 32px
+        38px;
 
-    border:
+    border-right:
         1px solid var(--line);
-
-    border-radius:
-        24px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.065),
-            rgba(255, 255, 255, 0.025)
+            180deg,
+            var(--surface-1),
+            transparent
         );
 
     transition:
-        transform 240ms ease,
-        border-color 240ms ease,
-        box-shadow 240ms ease;
+        background 260ms ease,
+        transform 260ms ease;
 }
 
+.world-card:last-child {
+    border-right: 0;
+}
+
+
+/*
+   Ghosted folio numerals.
+*/
+
 .world-card::before {
-    content: "";
+    position: absolute;
 
-    position:
-        absolute;
+    top: 26px;
+    right: 20px;
 
-    width:
-        190px;
+    color:
+        rgba(240, 233, 217, 0.034);
 
-    aspect-ratio:
-        1;
+    font-family: var(--font-editorial);
 
-    right:
-        -80px;
+    font-size: 9.5rem;
 
-    top:
-        -80px;
+    font-style: italic;
 
-    border-radius:
-        50%;
+    line-height: 0.75;
 
-    filter:
-        blur(45px);
+    pointer-events: none;
 
-    opacity:
-        0.30;
+    transition:
+        color 260ms ease,
+        transform 260ms ease;
 }
 
 .world-card:nth-child(1)::before {
-    background:
-        var(--pink);
+    content: "I";
 }
 
 .world-card:nth-child(2)::before {
-    background:
-        var(--cyan);
+    content: "II";
 }
 
 .world-card:nth-child(3)::before {
-    background:
-        var(--violet);
+    content: "III";
 }
+
+
+/*
+   Each subject gets a tiny material identity,
+   while remaining inside one palette.
+*/
+
+.world-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 32px;
+    bottom: 0;
+
+    width: 42px;
+    height: 3px;
+
+    transition:
+        width 280ms ease;
+}
+
+.world-card:nth-child(1)::after {
+    background: var(--wine);
+}
+
+.world-card:nth-child(2)::after {
+    background: var(--verdigris);
+}
+
+.world-card:nth-child(3)::after {
+    background: var(--brass);
+}
+
 
 .world-card:hover {
     transform:
-        translateY(-7px);
+        translateY(-6px);
 
-    border-color:
-        rgba(255, 255, 255, 0.18);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0, 0, 0, 0.25);
+    background:
+        linear-gradient(
+            180deg,
+            var(--surface-2),
+            rgba(240, 233, 217, 0.006)
+        );
 }
+
+.world-card:hover::before {
+    color:
+        rgba(240, 233, 217, 0.052);
+
+    transform:
+        translateY(5px);
+}
+
+.world-card:hover::after {
+    width:
+        calc(100% - 64px);
+}
+
 
 .card-number {
-    color:
-        var(--quiet);
+    position: relative;
 
-    font-size:
-        0.71rem;
+    z-index: 2;
 
-    font-weight:
-        800;
+    color: var(--quiet);
 
-    letter-spacing:
-        0.14em;
+    font-family: var(--font-editorial);
+
+    font-size: 0.64rem;
+
+    font-style: italic;
+
+    letter-spacing: 0.16em;
 }
+
+.world-card:nth-child(1) .card-number {
+    color: #a97988;
+}
+
+.world-card:nth-child(2) .card-number {
+    color: var(--verdigris-light);
+}
+
+.world-card:nth-child(3) .card-number {
+    color: var(--brass-light);
+}
+
 
 .world-card h3 {
-    position:
-        relative;
+    position: relative;
+
+    z-index: 2;
 
     margin:
-        92px 0 12px;
+        150px 0
+        17px;
+
+    color: var(--ivory);
+
+    font-family: var(--font-editorial);
 
     font-size:
-        2rem;
+        clamp(
+            2.8rem,
+            4.6vw,
+            4.2rem
+        );
 
-    line-height:
-        1;
+    font-weight: 400;
 
-    letter-spacing:
-        -0.04em;
+    font-style: italic;
+
+    line-height: 0.90;
+
+    letter-spacing: -0.055em;
 }
 
+
 .world-card p {
-    position:
-        relative;
+    position: relative;
 
-    margin:
-        0;
+    z-index: 2;
 
-    max-width:
-        320px;
+    margin: 0;
 
-    color:
-        var(--muted);
+    max-width: 310px;
 
-    font-size:
-        0.93rem;
+    color: var(--muted);
 
-    line-height:
-        1.7;
+    font-family: var(--font-editorial);
+
+    font-size: 0.93rem;
+
+    line-height: 1.77;
 }
 
 
 /* =========================================================
-   8. CURRENTLY
+   18. CURRENTLY / FIELD NOTES
    ========================================================= */
 
 .currently {
@@ -822,228 +1386,419 @@ section {
 }
 
 .currently-grid {
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        0.8fr 1.2fr;
+        minmax(280px, 0.69fr)
+        minmax(0, 1.31fr);
 
-    gap:
-        90px;
+    gap: 110px;
 }
 
 .currently-items {
+    position: relative;
+
     border-top:
-        1px solid var(--line);
+        1px solid var(--line-strong);
 }
 
+
+/*
+   Small archive label on the side.
+*/
+
+.currently-items::before {
+    content: "CURRENT OBSERVATIONS · VOL. I";
+
+    position: absolute;
+
+    right: -32px;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(90deg);
+
+    color:
+        rgba(240, 233, 217, 0.075);
+
+    font-family: var(--font-editorial);
+
+    font-size: 0.56rem;
+
+    letter-spacing: 0.20em;
+}
+
+
 .currently-row {
-    display:
-        grid;
+    position: relative;
+
+    display: grid;
 
     grid-template-columns:
-        130px 1fr;
+        128px 1fr;
 
-    gap:
-        26px;
+    gap: 34px;
 
     padding:
-        24px 0;
+        29px 0;
 
     border-bottom:
         1px solid var(--line);
 }
 
-.currently-row span {
-    color:
-        var(--quiet);
 
-    font-size:
-        0.72rem;
+/*
+   Tiny brass line reacts instead of entire row becoming
+   a glowing UI element.
+*/
 
-    font-weight:
-        800;
+.currently-row::after {
+    content: "";
 
-    letter-spacing:
-        0.13em;
+    position: absolute;
 
-    text-transform:
-        uppercase;
+    left: 0;
+    bottom: -1px;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--brass),
+            transparent
+        );
+
+    transition:
+        width 280ms ease;
 }
 
-.currently-row p {
-    margin:
-        0;
+.currently-row:hover::after {
+    width: 100%;
+}
 
-    color:
-        #d4cedd;
+
+.currently-row span {
+    color: var(--brass-light);
+
+    font-family: var(--font-editorial);
+
+    font-size: 0.63rem;
+
+    font-style: italic;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+.currently-row:nth-child(2) span {
+    color: var(--verdigris-light);
+}
+
+.currently-row:nth-child(3) span {
+    color: var(--moss);
+}
+
+
+.currently-row p {
+    margin: 0;
+
+    color: var(--ivory-soft);
+
+    font-family: var(--font-editorial);
 
     font-size:
-        1.02rem;
+        clamp(
+            1.06rem,
+            1.8vw,
+            1.20rem
+        );
+
+    line-height: 1.62;
 }
 
 
 /* =========================================================
-   9. ABOUT
+   19. ABOUT
    ========================================================= */
 
 .about {
+    overflow: hidden;
+
     border-top:
         1px solid var(--line);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(13, 27, 21, 0.58),
+            rgba(3, 8, 6, 0.72)
+        );
 }
 
-.about-box {
-    position:
-        relative;
 
-    overflow:
-        hidden;
+/* =========================================================
+   20. ABOUT CABINET
+   ========================================================= */
+
+.about-box {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 535px;
+
+    display: flex;
+    align-items: center;
 
     padding:
         clamp(
-            32px,
-            6vw,
-            70px
+            48px,
+            7vw,
+            88px
         );
 
     border:
-        1px solid var(--line);
-
-    border-radius:
-        30px;
+        1px solid var(--line-strong);
 
     background:
         linear-gradient(
             135deg,
-            rgba(255, 79, 163, 0.07),
-            rgba(139, 92, 246, 0.06),
-            rgba(82, 229, 231, 0.05)
+            rgba(240, 233, 217, 0.026),
+            rgba(240, 233, 217, 0.004) 65%
+        );
+
+    clip-path:
+        polygon(
+            0 20px,
+            20px 0,
+            calc(100% - 20px) 0,
+            100% 20px,
+            100% calc(100% - 20px),
+            calc(100% - 20px) 100%,
+            20px 100%,
+            0 calc(100% - 20px)
         );
 }
+
+
+/*
+   Abstract scholarly instrument.
+
+   It could equally be astronomical, mechanical,
+   magical or entirely useless.
+*/
+
+.about-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    right: -95px;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(12deg);
+
+    border:
+        1px solid
+        rgba(184, 138, 82, 0.30);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            transparent 0 15%,
+            rgba(101, 152, 138, 0.18) 15.2% 15.7%,
+            transparent 16% 30%,
+            rgba(184, 138, 82, 0.17) 30.2% 30.7%,
+            transparent 31% 47%,
+            rgba(101, 152, 138, 0.14) 47.2% 47.6%,
+            transparent 48%
+        ),
+
+        conic-gradient(
+            from 17deg,
+
+            transparent 0 7%,
+            rgba(240,233,217,0.065) 7.2% 7.5%,
+            transparent 7.7% 22%,
+
+            rgba(240,233,217,0.055) 22.2% 22.5%,
+            transparent 22.7% 46%,
+
+            rgba(240,233,217,0.055) 46.2% 46.5%,
+            transparent 46.7% 71%,
+
+            rgba(240,233,217,0.055) 71.2% 71.5%,
+            transparent 71.7%
+        );
+
+    opacity: 0.78;
+
+    pointer-events: none;
+}
+
+
+/*
+   Central mark of the "instrument".
+*/
 
 .about-box::after {
-    content: "KT";
+    content: "✦";
 
-    position:
-        absolute;
+    position: absolute;
 
-    right:
-        -10px;
+    right: 104px;
+    top: 50%;
 
-    bottom:
-        -80px;
+    transform:
+        translateY(-50%);
 
-    color:
-        rgba(255, 255, 255, 0.025);
+    color: var(--brass-light);
 
-    font-size:
-        clamp(
-            12rem,
-            28vw,
-            26rem
-        );
+    font-size: 2.2rem;
 
-    font-weight:
-        950;
+    text-shadow:
+        0 0 32px
+        rgba(184, 138, 82, 0.18);
 
-    line-height:
-        1;
-
-    letter-spacing:
-        -0.09em;
-
-    pointer-events:
-        none;
+    pointer-events: none;
 }
 
+
 .about-copy {
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        1;
+    z-index: 2;
 
-    max-width:
-        760px;
+    max-width: 730px;
 }
 
 .about-copy p {
     margin:
-        25px 0 0;
+        34px 0 0;
 
-    color:
-        #c9c2d1;
+    max-width: 650px;
+
+    color: var(--ivory-soft);
+
+    font-family: var(--font-editorial);
 
     font-size:
         clamp(
-            1.1rem,
+            1.16rem,
             2vw,
-            1.35rem
+            1.50rem
         );
 
-    line-height:
-        1.8;
+    line-height: 1.74;
 }
 
 
 /* =========================================================
-   10. FOOTER
+   21. FOOTER
    ========================================================= */
 
 footer {
+    position: relative;
+
     padding:
-        36px 0
-        45px;
+        40px 0
+        48px;
 
     border-top:
         1px solid var(--line);
 }
 
+footer::before {
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+    top: -8px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        0 12px;
+
+    color: var(--brass);
+
+    background: var(--ink-950);
+
+    font-size: 0.69rem;
+}
+
+
 .footer-grid {
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
+    gap: 24px;
 
-    gap:
-        20px;
+    color: var(--quiet);
 
-    color:
-        var(--quiet);
+    font-family: var(--font-editorial);
 
-    font-size:
-        0.75rem;
+    font-size: 0.68rem;
+
+    font-style: italic;
+
+    letter-spacing: 0.045em;
 }
 
 .footer-mark {
-    color:
-        var(--muted);
+    color: var(--muted);
 }
 
 
 /* =========================================================
-   11. REVEAL ANIMATION
+   22. SCROLL REVEAL
    ========================================================= */
 
 .reveal {
-    opacity:
-        0;
+    opacity: 0;
 
     transform:
-        translateY(26px);
+        translateY(24px);
 
     transition:
-        opacity 700ms ease,
-        transform 700ms ease;
+
+        opacity
+        780ms
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+
+        transform
+        780ms
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
 }
 
 .reveal.visible {
-    opacity:
-        1;
+    opacity: 1;
 
     transform:
         translateY(0);
@@ -1051,26 +1806,32 @@ footer {
 
 
 /* =========================================================
-   12. RESPONSIVE
+   23. TABLET
    ========================================================= */
 
-@media (max-width: 900px) {
-
-    .hero-grid,
-    .currently-grid {
-        grid-template-columns:
-            1fr;
-    }
+@media (max-width: 980px) {
 
     .hero-grid {
+        grid-template-columns:
+            1fr;
+
         gap:
-            52px;
+            70px;
+    }
+
+    .hero-grid::after {
+        display: none;
     }
 
     .hero-side {
         max-width:
-            580px;
+            590px;
     }
+
+
+    /* -----------------------------------------
+       Folios become a vertical catalogue.
+       ----------------------------------------- */
 
     .card-grid {
         grid-template-columns:
@@ -1079,33 +1840,83 @@ footer {
 
     .world-card {
         min-height:
-            250px;
+            285px;
+
+        border-right:
+            0;
+
+        border-bottom:
+            1px solid var(--line);
+    }
+
+    .world-card:last-child {
+        border-bottom:
+            0;
     }
 
     .world-card h3 {
         margin-top:
-            60px;
+            74px;
     }
 
+
     .currently-grid {
+        grid-template-columns:
+            1fr;
+
         gap:
-            44px;
+            54px;
+    }
+
+    .currently-items::before {
+        display:
+            none;
+    }
+
+
+    .about-box::before {
+        right:
+            -215px;
+
+        opacity:
+            0.43;
+    }
+
+    .about-box::after {
+        right:
+            -5px;
+
+        opacity:
+            0.48;
     }
 }
+
+
+/* =========================================================
+   24. MOBILE
+   ========================================================= */
 
 @media (max-width: 680px) {
 
     .container {
         width:
             min(
-                100% - 28px,
+                calc(100% - 30px),
                 var(--max-width)
             );
     }
 
+
+    /* -----------------------------------------
+       Navigation
+       ----------------------------------------- */
+
     .nav {
         width:
             calc(100% - 20px);
+
+        padding:
+            10px 13px;
     }
 
     .nav-links {
@@ -1113,32 +1924,127 @@ footer {
             none;
     }
 
+
+    /* -----------------------------------------
+       Global spacing
+       ----------------------------------------- */
+
     section {
         padding:
-            85px 0;
+            92px 0;
     }
 
+
+    /* -----------------------------------------
+       Hero
+       ----------------------------------------- */
+
     .hero {
-        padding-top:
-            135px;
+        min-height:
+            100svh;
+
+        padding:
+            145px 0
+            82px;
     }
 
     .hero h1 {
         font-size:
             clamp(
-                3.7rem,
-                19vw,
-                6rem
+                4.6rem,
+                23vw,
+                7.3rem
             );
     }
+
+    .hero-intro {
+        margin-top:
+            34px;
+    }
+
+    .hero-side {
+        padding-left:
+            23px;
+    }
+
+
+    /* -----------------------------------------
+       Worlds
+       ----------------------------------------- */
+
+    .worlds-heading {
+        padding-left:
+            0;
+    }
+
+    .worlds-heading::before,
+    .worlds-heading::after {
+        display:
+            none;
+    }
+
+    .world-card {
+        padding:
+            28px 25px
+            34px;
+    }
+
+    .world-card::after {
+        left:
+            25px;
+    }
+
+    .world-card:hover::after {
+        width:
+            calc(100% - 50px);
+    }
+
+
+    /* -----------------------------------------
+       Currently
+       ----------------------------------------- */
 
     .currently-row {
         grid-template-columns:
             1fr;
 
         gap:
-            8px;
+            10px;
     }
+
+
+    /* -----------------------------------------
+       About
+       ----------------------------------------- */
+
+    .about-box {
+        min-height:
+            475px;
+
+        padding:
+            39px 26px;
+    }
+
+    .about-box::before {
+        width:
+            340px;
+
+        height:
+            340px;
+
+        right:
+            -240px;
+    }
+
+    .about-box::after {
+        display:
+            none;
+    }
+
+
+    /* -----------------------------------------
+       Footer / scroll
+       ----------------------------------------- */
 
     .scroll-hint {
         display:
@@ -1146,22 +2052,29 @@ footer {
     }
 
     .footer-grid {
-        align-items:
-            flex-start;
-
         flex-direction:
             column;
+
+        align-items:
+            flex-start;
     }
 }
 
+
+/* =========================================================
+   25. REDUCED MOTION
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior:
+            auto;
+    }
 
     *,
     *::before,
     *::after {
-        scroll-behavior:
-            auto !important;
-
         animation-duration:
             0.001ms !important;
 
